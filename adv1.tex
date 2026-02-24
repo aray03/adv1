@@ -124,7 +124,48 @@ Author \# 3 }
 		\question Prove or disprove whether you can order the years $2011, \dots, 2026$ so that the resulting $64$-digit number is prime.
 
 		\begin{solution}
+\subsection*{Claim}
+It is not possible to order the years 2011, 2012, \dots, 2026 to form a 64-digit number that is prime. 
+
+\subsection*{Proof}
+We shall prove this by proving that any such 64-digit number formed by concatenating the years 2011 to 2026 is divisible by 11, and thus composite (Composite means not Prime).
+
+First we will start by refering to a few things from our notes. According to Theorem 2, part 6, we know that an integer $X$ is divisible by 11 if the alternating sum of its digits, $\sum_{i=0}^{n}(-1)^{i}d_{i}$, is divisible by 11.
+
+So we will concatinate each year, which which will give us our 64-digit number because we have 16 years and each year has 4 digits. Because each years is just 4 digits, which is an even number of digits, the alternating sum of each year will always be the same, (For example 2011 will always be $1 - 1 + 0 - 2$ no matter where we place it in the 64 digit number). 
+
+
+We calculate the individual alternating sums ($d_0 - d_1 + d_2 - d_3$) for each year in the set:
+
+So here we will calculate the alternating sum for each year:
+\begin{itemize}
+    \item 2011: $1 - 1 + 0 - 2 = -2$
+    \item 2012: $2 - 1 + 0 - 2 = -1$
+    \item 2013: $3 - 1 + 0 - 2 = 0$
+    \item 2014: $4 - 1 + 0 - 2 = 1$
+    \item 2015: $5 - 1 + 0 - 2 = 2$
+    \item 2016: $6 - 1 + 0 - 2 = 3$
+    \item 2017: $7 - 1 + 0 - 2 = 4$
+    \item 2018: $8 - 1 + 0 - 2 = 5$
+    \item 2019: $9 - 1 + 0 - 2 = 6$
+    \item 2020: $0 - 2 + 0 - 2 = -4$
+    \item 2021: $1 - 2 + 0 - 2 = -3$
+    \item 2022: $2 - 2 + 0 - 2 = -2$
+    \item 2023: $3 - 2 + 0 - 2 = -1$
+    \item 2024: $4 - 2 + 0 - 2 = 0$
+    \item 2025: $5 - 2 + 0 - 2 = 1$
+    \item 2026: $6 - 2 + 0 - 2 = 2$
+\end{itemize}
+
+If we add all of those values together we get:
+$$ -2 - 1 + 0 + 1 + 2 + 3 + 4 + 5 + 6 - 4 - 3 - 2 - 1 + 0 + 1 + 2 = 11$$
+
+Since the alternating sum $11$ is divisible by 11 ($11 = 11 \cdot 1$), then our 64 digit number $X$ is also divisible by 11 based on Theorem 2.
+
+\subsection*{Conclusion}
+Because $X$ has a divisor $a = 11$ such that $11$ divides $X$[cite: 240], and $X$ is clearly greater than 11, $X$ satisfies the definition of a composite number. By the definition of a divisor in Definition 4 (page 12), $X$ cannot be prime[cite: 240]. Thus, no ordering of the years 2011 to 2026 can result in a prime number.		
 			
+
 		\end{solution}
 		
 		
