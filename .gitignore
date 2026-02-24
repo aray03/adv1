@@ -1,2 +1,4 @@
 /%OUTDIR%
 .gz
+%OUTDIR%
+adv1.synctex.gz
