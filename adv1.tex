@@ -83,7 +83,54 @@ Author \# 3 }
 		\emph{Determine, with proof, the values of $x,y,z$ for which Severus Snape (the first player) can always win if a particular strategy is employed for each move.}\\
 		
 		\begin{solution}
-			
+			Claim: Player 1 (Snape) has a winning strategy for every starting position in which the number of passages in each side is not equal.
+
+
+            \begin{proof}
+                We can prove this through induction. 
+
+                Let x, y, z = N meaning that all of the routes have the same number of passages. 
+
+                Base Case:
+                N = 1
+
+            \begin{tikzpicture}[scale = 1.5]
+				\tikzset{vertex/.style = {shape=circle,fill = black, draw, scale = 0.50}}
+				
+				%\node[] (label_d0) at (-4,0) {$K_1$};
+				
+				\node[vertex] (A) at (0,0) {};
+				\node[] (label_A) at (-0.3,-0.3) {Shrieking Shack};
+				\node[vertex] (B) at (2,0) {};
+				\node[] (label_B) at (2.3,-0.3) {Hogsmeade};
+				\node[vertex] (C) at (1,2) {};
+				\node[] (label_C) at (1,2.3) {Hogwarts};
+				
+				\draw[] (A) to (B) to (C) (A) to (B) 
+				to (A) to (C);
+				
+			\end{tikzpicture}
+
+                In this case the player going first will always lose as long as their opponent understands the game. Player 1 can either remove one passage or 2 in either case player 2 can remove the remaining passages.
+
+                Hypothesis 
+
+                Assume that this is true for N = K + 1 meaning that x + 1, y + 1, z+1 all equal N.
+
+                Inductive step: 
+                
+                In any of these cases Player 1 can remove from 1 or 2 of the values meaning that Player 2 can match them to create the same position where x y z = N and eventually get to the base case x, y, z = 1
+
+                Therefore any position where x, y, z = N is an unwinable position for the player going first. 
+
+                In any case where x, y, z $\ne$ the winning strategy for player one goes like this. The player finds the side or sides that have the least amount of passageways and removes passageways from the other sides until they match and all sides are equal. This forces player 2 into the same position where x, y, z = N which is unwinnable. 
+
+                Therefore There is a winning strategy for player 1 for every starting position in which the number of passages in each side are not equal.
+
+                
+            \end{proof} 
+
+            
 		\end{solution}
 		
 		
