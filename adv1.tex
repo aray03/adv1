@@ -387,7 +387,87 @@ Author \# 3 }
 			\end{theorem}
 
 			\begin{solution}
+               \begin{proof}
+        
+      
+                The Theorem can be proved through induction. 
 
+                Base Case:
+
+                n = 1
+
+\begin{tikzpicture}[scale=0.8]
+    % Bottom-left
+    \filldraw[thick, fill=gray!40] (0,0) rectangle (1,1);
+    % Bottom-right
+    \filldraw[thick, fill=gray!40] (1,0) rectangle (2,1);
+    % Top-left (removed square) with red cross
+    \draw[thick] (0,1) rectangle (1,2);
+    \draw[red, thick] (0,1) -- (1,2);
+    \draw[red, thick] (0,2) -- (1,1);
+    % Top-right
+    \filldraw[thick, fill=gray!40] (1,1) rectangle (2,2);
+\end{tikzpicture}
+
+As demenstrated in the picture the Theorem works for the base case.
+
+Hypothesis: Assume this holds for $2^{n + 1} \times 2^{n+ 1}$
+
+Inductive Step:
+For any of the $2^{n + 1} \times 2^{n+ 1}$ boards we can split them up into 4 sections which are each of the size $2^{n} \times 2^{n}$. After we do that we can put last L shaped tile in the center createing the base case. 
+
+Each
+
+\begin{tikzpicture}[scale=0.8]
+    % 4x4 board: inner-corner square of each quadrant is gray; others light blue
+    \foreach \x in {0,1,2,3} {
+        \foreach \y in {0,1,2,3} {
+            \ifnum\x=1
+                \ifnum\y=2
+                    \filldraw[thick, fill=gray!40] (\x,\y) rectangle (\x+1,\y+1);
+                \else
+                    \ifnum\y=1
+                        \filldraw[thick, fill=gray!40] (\x,\y) rectangle (\x+1,\y+1);
+                    \else
+                        \filldraw[thick, fill=blue!20] (\x,\y) rectangle (\x+1,\y+1);
+                    \fi
+                \fi
+            \else
+                \ifnum\x=2
+                    \ifnum\y=2
+                        \filldraw[thick, fill=gray!40] (\x,\y) rectangle (\x+1,\y+1);
+                    \else
+                        \ifnum\y=1
+                            \filldraw[thick, fill=gray!40] (\x,\y) rectangle (\x+1,\y+1);
+                        \else
+                            \filldraw[thick, fill=blue!20] (\x,\y) rectangle (\x+1,\y+1);
+                        \fi
+                    \fi
+                \else
+                    \filldraw[thick, fill=blue!20] (\x,\y) rectangle (\x+1,\y+1);
+                \fi
+            \fi
+        }
+    }
+    % Darker outlines to show the four 3-square L-tiles (one per quadrant)
+    \draw[black, ultra thick] (0,2) -- (0,4) -- (2,4) -- (2,3) -- (1,3) -- (1,2) -- cycle;
+    \draw[black, ultra thick] (2,3) -- (2,4) -- (4,4) -- (4,2) -- (3,2) -- (3,3) -- cycle;
+    \draw[black, ultra thick] (0,0) -- (0,2) -- (1,2) -- (1,1) -- (2,1) -- (2,0) -- cycle;
+    \draw[black, ultra thick] (2,0) -- (2,1) -- (3,1) -- (3,2) -- (4,2) -- (4,0) -- cycle;
+    % Dark outlines around the four 2x2 quadrants
+    \draw[black, ultra thick] (0,2) rectangle (2,4);
+    \draw[black, ultra thick] (2,2) rectangle (4,4);
+    \draw[black, ultra thick] (0,0) rectangle (2,2);
+    \draw[black, ultra thick] (2,0) rectangle (4,2);
+    % Cross out the top-left square of the center 2x2
+    \draw[red, ultra thick] (1,2) -- (2,3);
+    \draw[red, ultra thick] (1,3) -- (2,2);
+\end{tikzpicture}
+
+example: n=2
+
+Therefore through induction we can prove that for every value of n we can tile the floor perfectly.
+                \end{proof}
 			\end{solution}
 		\end{questions}
 	
