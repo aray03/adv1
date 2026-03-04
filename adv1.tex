@@ -251,9 +251,71 @@ Author \# 3 }
 			\end{questions}
 		
 			\begin{solution}
+            
+            \begin{enumerate}
+                \item 
+                    \textbf{Formula:} $x^n$ \\
+                    \textbf{Explanation:} 
+					To explain this there are $n$ distinguishable objects in $A$ which can be mapped to any of the $x$ distinguishable objects in $B$. Therefore, for each of the $n$ objects, there will always be $x$ choices, we can represent this by our formula $x^n$ because we have $n$ objects and $x$ choices for each object.
+                
+                \item 
+                    \textbf{Formula:} $x! \cdot \stirling{n}{x}$ \\
+                    \textbf{Explanation:} 
+					To explain this we can think of this as first counting the number of ways to partition the $n$ distinguishable objects in $A$ into $x$ which is just $\stirling{n}{x}$ (As shown by 5) Since we can map $x$ distinguishable objects in $B$ in any order, we multiply by $x!$ to account for all possible orderings we can have.
+                
+                \item 
+                    \textbf{Formula:} 
+                    \textbf{Explanation:} 
+					
+                \item 
+                    \textbf{Formula:} 
+                    \textbf{Explanation:} 
+                
+                \item 
+                    \textbf{Formula:} $\stirling{n}{x}$ \\
+                    \textbf{Explanation:}
+					This is just $\stirling{n}{x}$ because we are counting the number of ways we can partition $n$ indistinguishable objects into $x$ distinguishable boxes. Which is literly it's definition.
+                
+                \item 
+                    \textbf{Formula:} $\binom{n}{x}$ \\
+                    \textbf{Explanation:} 
+					We are counting the number of ways to map $n$ indistinguishable objects in $A$ to $x$ distinguishable objects in $B$. Since the objects in $A$ are indistinguishable, we just need to choose which $x$ objects in $A$ will be mapped to the $x$ objects in $B$. This is just $\binom{n}{x}$ because we are choosing $x$ objects from a set of $n$ objects.
+                
+                \item 
+                    \textbf{Formula:} 
+                    \textbf{Explanation:} 
+                
+                \item 
+                    \textbf{Formula:} $\stirling{n}{x}$ \\
+                    \textbf{Explanation:} \
+					This is almost exactly the same as 5. Just the indistinguishability of the objects in $A$ does not change the number of ways we can partition them into $x$ distinguishable boxes. So our formula is the exact same as 5 which is $\stirling{n}{x}$.
+                
+                \item 
+                    \textbf{Formula:} $\begin{cases} 1 & \text{if } n \leq x \\ 0 & \text{if } n > x \end{cases}$ \\
+                    \textbf{Explanation:} 
+					We are counting the number of ways to map $n$ distinguishable objects in $A$ to $x$ indistinguishable objects in $B$. If $n > x$, there are isn't any mappings so we get 0. If $n \leq x$, there is exactly one way to map each object in $A$ to an object in $B$, so we get 1.
+                
+                \item 
+                    \textbf{Formula:} 
+                    \textbf{Explanation:} 
+                
+                \item 
+                    \textbf{Formula:} 
+                    \textbf{Explanation:} 
+                
+                \item 
+                    \textbf{Formula:} $\begin{cases} 1 & \text{if } n \leq x \\ 0 & \text{if } n > x \end{cases}$ \\
+                    \textbf{Explanation:} 
+					This is almost the exact same as 9. As we are counting the number of ways to map $n$ indistinguishable objects in $A$ to $x$ indistinguishable objects in $B$. If $n > x$, there are isn't any mappings so we get 0. If $n \leq x$, there is exactly one way to map each object in $A$ to an object in $B$, so we get 1.
+            \end{enumerate}
+            
+            \end{solution}
 			
-			\end{solution}
-			
+
+
+
+
+
 	
 	\section{Tiling}
 		\qformat{\textbf{Sub-Adventure \thesection.\thequestion }\hfill}
