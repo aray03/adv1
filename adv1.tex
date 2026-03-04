@@ -159,6 +159,55 @@ Author \# 3 }
 			win if she employs a particular strategy for each move.}
 		
 		\begin{solution}
+        \begin{proof}
+        Claim: Zelda will always lose in a 6X5 sized board
+
+        In this game the best strategy is to just connect any edge which does not complete a square. For each C there is 4 sides and so in every case you should only play on $C_0$ $C_1$ and $C_2$ avoiding playing on $C_3$. In other words there is no risk of making a bad move as long as you are not playing on a square which already has 3 connected sides. In every game as long as both players employ this strategy there will be an ending game where every square is left with a $C_3$ and the final player must complete a square and lose. 
+
+        Lemma 1:
+        There is always the same amount of edges filled before the final move of the game.
+
+        The final move of the game will always be filling one square in to become $C_4$. This means there are no squares that have less than 3 sides filled in meaning every square must have exactly 3 sides filled in and be $C_3$. If every square is $C_3$ we know that there is always the same amount of edges filled before the final move of the game.
+
+        Lemma 2: 
+        
+        If the amount of edges is even than the player going first will always win.
+
+        Let E be the number of edges in a game. 
+        
+        \begin{center}
+			\begin{tikzpicture}[scale = 1]
+				\tikzset{vertex/.style = {shape=circle,fill = black, draw, scale = 0.50}}
+				\foreach \x in {0,1}{
+					\foreach \y in {0,1}{
+						\node[vertex] (\x\y) at (\x,\y) {};
+				}}
+				\draw (0,0) grid (1,1);
+			\end{tikzpicture}
+		\end{center}
+
+        In this case the player going first will always win. The amount of Edges If the shape were a pentagon and E was 5 then it would add one more move before the player was forced to fill in the shape and the next player would win. This means that E + 1 = the player who wins E loses. 
+    
+        \begin{center}
+			\begin{tikzpicture}[scale = 1]
+				\tikzset{vertex/.style = {shape=circle,fill = black, draw, scale = 0.50}}
+				\foreach \x in {0,1}{
+					\foreach \y in {0,1}{
+						\node[vertex] (\x\y) at (\x,\y) {};
+				}}
+				\draw (0,0) grid (2,1);
+			\end{tikzpicture}
+		\end{center}
+
+        As shown in this example the second player wins because E = 7 which is odd.
+
+
+        The amount of edges in the given board is 49. This means that E = 49 which is odd meaning that Zelda can never win the game no matter the strategy.
+
+        
+        
+            
+        \end{proof}
 			
 		\end{solution}
 		
@@ -324,20 +373,37 @@ Author \# 3 }
 
 				\begin{solution}
                     
-                    Showing the initial values, leading up to the recursive formula for $T_n$:
+                    Base Case: Showing the initial values up to $n = 4$:
 
-                    $T_0 =1$
+                    For $n = 0$: $T_0 =1$
 
-                    $T_1 =1$ (Using a single $1 \times 1$ tile)
+                    For $n = 1$: $T_1 =1$ (Using a single $1 \times 1$ tile)
 
-                    $T_2 =2$ (Using either two $1 \times 1$ tiles or a single $1 \times 2$ tile)
+                    For $n = 2$: $T_2 =2$ (Using either two $1 \times 1$ tiles or a single $1 \times 2$ tile)
 
-                    $T_3 =3$ (Using either three $1 \times 1$ tiles, or a $1 \times 2$ tile and a $1 \times 1$ tile, in different orders)
+                    For $n = 3$: $T_3 =3$ (Using either three $1 \times 1$ tiles, or a $1 \times 2$ tile and a $1 \times 1$ tile, in different orders)
 
-                    $T_4 =5$ (Using either four $1 \times 1$ tiles, or a combination of $1 \times 2$ tiles and $1 \times 1$ tiles, or two $1 \times 2$ tiles)
+                    For $n = 4$: $T_4 =5$ (Using either four $1 \times 1$ tiles, or a combination of $1 \times 2$ tiles and $1 \times 1$ tiles, or two $1 \times 2$ tiles)
+                    \\\\
+                    Induction Hypothesis: This relationship holds true for some $k$, that is $T_k = T_{k-1} + T_{k-2}$ for $k \geq 2$. In other words, the number of ways to perfectly tile a $1 \times n$ floor is equal to the sum of the two previous $n$'s tiling configurations.
+                    \\\\
+                    Induction Step: We must now show that this relationship continues to hold true for $k + 1$,
+                    that is $T_{k+1} = T_{(k+1)-1} + T_{(k+1)-2}$ for $k \geq 2$.
+                    \\\\
+                    Simplifying the RHS:
+                    
+                    $T_{(k+1)-1} + T_{(k+1)-2}$
 
-                    ...
+                    $T_{k} + T_{k-1}$
+                    \\\\
+                    Thus:
 
+                    $T_{k+1} = T_{k} + T_{k-1}$
+                    \\\\
+                    Conclusion:
+
+                    As shown in the base case, the relationship is true for $n = 2$, $n = 3$, and $n = 4$; and the 			relationship’s truth for $n = k \geq 2$ implies its truth for $n = k + 1$ and so the relationship is true for all nonnegative integers by the Principle of Mathematical Induction, proving the following formula:
+                    \\\\
                     $T_n = T_{n-1} + T_{n-2}$ for $n \geq 2$
                     
 				\end{solution}
@@ -384,7 +450,87 @@ Author \# 3 }
 			\end{theorem}
 
 			\begin{solution}
+               \begin{proof}
+        
+      
+                Claim: The Theorem can be proved through induction. 
 
+                Base Case:
+
+                n = 1
+
+\begin{tikzpicture}[scale=0.8]
+    % Bottom-left
+    \filldraw[thick, fill=gray!40] (0,0) rectangle (1,1);
+    % Bottom-right
+    \filldraw[thick, fill=gray!40] (1,0) rectangle (2,1);
+    % Top-left (removed square) with red cross
+    \draw[thick] (0,1) rectangle (1,2);
+    \draw[red, thick] (0,1) -- (1,2);
+    \draw[red, thick] (0,2) -- (1,1);
+    % Top-right
+    \filldraw[thick, fill=gray!40] (1,1) rectangle (2,2);
+\end{tikzpicture}
+
+As demonstrated in the picture the Theorem works for the base case.
+
+Hypothesis: Assume this holds for $2^{n + 1} \times 2^{n+ 1}$
+
+Inductive Step:
+For any of the $2^{n + 1} \times 2^{n+ 1}$ boards we can split them up into 4 sections which are each of the size $2^{n} \times 2^{n}$. After we do that we can put last L shaped tile in the center createing the base case. 
+
+Each
+
+\begin{tikzpicture}[scale=0.8]
+    % 4x4 board: inner-corner square of each quadrant is gray; others light blue
+    \foreach \x in {0,1,2,3} {
+        \foreach \y in {0,1,2,3} {
+            \ifnum\x=1
+                \ifnum\y=2
+                    \filldraw[thick, fill=gray!40] (\x,\y) rectangle (\x+1,\y+1);
+                \else
+                    \ifnum\y=1
+                        \filldraw[thick, fill=gray!40] (\x,\y) rectangle (\x+1,\y+1);
+                    \else
+                        \filldraw[thick, fill=blue!20] (\x,\y) rectangle (\x+1,\y+1);
+                    \fi
+                \fi
+            \else
+                \ifnum\x=2
+                    \ifnum\y=2
+                        \filldraw[thick, fill=gray!40] (\x,\y) rectangle (\x+1,\y+1);
+                    \else
+                        \ifnum\y=1
+                            \filldraw[thick, fill=gray!40] (\x,\y) rectangle (\x+1,\y+1);
+                        \else
+                            \filldraw[thick, fill=blue!20] (\x,\y) rectangle (\x+1,\y+1);
+                        \fi
+                    \fi
+                \else
+                    \filldraw[thick, fill=blue!20] (\x,\y) rectangle (\x+1,\y+1);
+                \fi
+            \fi
+        }
+    }
+    % Darker outlines to show the four 3-square L-tiles (one per quadrant)
+    \draw[black, ultra thick] (0,2) -- (0,4) -- (2,4) -- (2,3) -- (1,3) -- (1,2) -- cycle;
+    \draw[black, ultra thick] (2,3) -- (2,4) -- (4,4) -- (4,2) -- (3,2) -- (3,3) -- cycle;
+    \draw[black, ultra thick] (0,0) -- (0,2) -- (1,2) -- (1,1) -- (2,1) -- (2,0) -- cycle;
+    \draw[black, ultra thick] (2,0) -- (2,1) -- (3,1) -- (3,2) -- (4,2) -- (4,0) -- cycle;
+    % Dark outlines around the four 2x2 quadrants
+    \draw[black, ultra thick] (0,2) rectangle (2,4);
+    \draw[black, ultra thick] (2,2) rectangle (4,4);
+    \draw[black, ultra thick] (0,0) rectangle (2,2);
+    \draw[black, ultra thick] (2,0) rectangle (4,2);
+    % Cross out the top-left square of the center 2x2
+    \draw[red, ultra thick] (1,2) -- (2,3);
+    \draw[red, ultra thick] (1,3) -- (2,2);
+\end{tikzpicture}
+
+example: n=2
+
+Therefore through induction we can prove that for every value of n we can tile the floor perfectly.
+                \end{proof}
 			\end{solution}
 		\end{questions}
 	
