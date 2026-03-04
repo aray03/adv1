@@ -159,6 +159,55 @@ Author \# 3 }
 			win if she employs a particular strategy for each move.}
 		
 		\begin{solution}
+        \begin{proof}
+        Claim: Zelda will always lose in a 6X5 sized board
+
+        In this game the best strategy is to just connect any edge which does not complete a square. For each C there is 4 sides and so in every case you should only play on $C_0$ $C_1$ and $C_2$ avoiding playing on $C_3$. In other words there is no risk of making a bad move as long as you are not playing on a square which already has 3 connected sides. In every game as long as both players employ this strategy there will be an ending game where every square is left with a $C_3$ and the final player must complete a square and lose. 
+
+        Lemma 1:
+        There is always the same amount of edges filled before the final move of the game.
+
+        The final move of the game will always be filling one square in to become $C_4$. This means there are no squares that have less than 3 sides filled in meaning every square must have exactly 3 sides filled in and be $C_3$. If every square is $C_3$ we know that there is always the same amount of edges filled before the final move of the game.
+
+        Lemma 2: 
+        
+        If the amount of edges is even than the player going first will always win.
+
+        Let E be the number of edges in a game. 
+        
+        \begin{center}
+			\begin{tikzpicture}[scale = 1]
+				\tikzset{vertex/.style = {shape=circle,fill = black, draw, scale = 0.50}}
+				\foreach \x in {0,1}{
+					\foreach \y in {0,1}{
+						\node[vertex] (\x\y) at (\x,\y) {};
+				}}
+				\draw (0,0) grid (1,1);
+			\end{tikzpicture}
+		\end{center}
+
+        In this case the player going first will always win. The amount of Edges If the shape were a pentagon and E was 5 then it would add one more move before the player was forced to fill in the shape and the next player would win. This means that E + 1 = the player who wins E loses. 
+    
+        \begin{center}
+			\begin{tikzpicture}[scale = 1]
+				\tikzset{vertex/.style = {shape=circle,fill = black, draw, scale = 0.50}}
+				\foreach \x in {0,1}{
+					\foreach \y in {0,1}{
+						\node[vertex] (\x\y) at (\x,\y) {};
+				}}
+				\draw (0,0) grid (2,1);
+			\end{tikzpicture}
+		\end{center}
+
+        As shown in this example the second player wins because E = 7.
+
+
+        The amount of edges in the given board is 49. This means that E = 49 which is odd meaning that Zelda can never win the game no matter the strategy.
+
+        
+        
+            
+        \end{proof}
 			
 		\end{solution}
 		
