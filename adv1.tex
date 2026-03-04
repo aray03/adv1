@@ -264,12 +264,13 @@ Author \# 3 }
 					To explain this we can think of this as first counting the number of ways to partition the $n$ distinguishable objects in $A$ into $x$ which is just $\stirling{n}{x}$ (As shown by 5) Since we can map $x$ distinguishable objects in $B$ in any order, we multiply by $x!$ to account for all possible orderings we can have.
                 
                 \item 
-                    \textbf{Formula:} 
+                    \textbf{Formula:} $\frac{x!}{(x-n)!}$ \\
                     \textbf{Explanation:} 
-					
+					We are counting the number of ways to map $n$ distinguishable objects in $A$ to distinguishable objects in $B$ such that no two objects in $A$ are mapped to the same object in $B$ (The definition of injectivity). This is just the number of ways to choose which $n$ objects in $B$ will be mapped to the $n$ objects in $A$, which is $\frac{x!}{(x-n)!}$ because we are choosing $n$ objects from a set of $x$ objects and the order matters because the objects in $A$ are distinguishable.
                 \item 
-                    \textbf{Formula:} 
+                    \textbf{Formula:} $\binom{n+x-1}{x-1}$ \\
                     \textbf{Explanation:} 
+					We are counting the number of ways to map $n$ indistinguishable objects in $A$ to $x$ distinguishable objects in $B$. This is just the number of ways to partition $n$ indistinguishable objects into $x$ distinguishable boxes, which is $\binom{n+x-1}{x-1}$ we can think of this as placing $n$ indistinguishable balls into $x$ distinguishable boxes. We do the subtraction of 1 from $x$ because we can think of this as placing $n$ indistinguishable balls into $x-1$ distinguishable boxes and then placing the remaining balls in the last box.
                 
                 \item 
                     \textbf{Formula:} $\stirling{n}{x}$ \\
@@ -279,11 +280,12 @@ Author \# 3 }
                 \item 
                     \textbf{Formula:} $\binom{n}{x}$ \\
                     \textbf{Explanation:} 
-					We are counting the number of ways to map $n$ indistinguishable objects in $A$ to $x$ distinguishable objects in $B$. Since the objects in $A$ are indistinguishable, we just need to choose which $x$ objects in $A$ will be mapped to the $x$ objects in $B$. This is just $\binom{n}{x}$ because we are choosing $x$ objects from a set of $n$ objects.
+					Since the objects in $A$ are indistinguishable, we just need to choose which $x$ objects in $A$ will be mapped to the $x$ objects in $B$. This is just $\binom{n}{x}$ because we are choosing $x$ objects from a set of $n$ objects.
                 
                 \item 
-                    \textbf{Formula:} 
+                    \textbf{Formula:} $\stirling{n+1}{2}$ \\
                     \textbf{Explanation:} 
+					This is just the number of ways to partition $n$ distinguishable objects into $x$ indistinguishable boxes, which is $\stirling{n+1}{2}$ we can think of this as placing $n$ distinguishable balls into $x$ indistinguishable boxes. We do the addition of 1 to $n$ because we can think of this as placing $n$ distinguishable balls into $x-1$ indistinguishable boxes and then placing the remaining balls in the last box.
                 
                 \item 
                     \textbf{Formula:} $\stirling{n}{x}$ \\
@@ -293,7 +295,7 @@ Author \# 3 }
                 \item 
                     \textbf{Formula:} $\begin{cases} 1 & \text{if } n \leq x \\ 0 & \text{if } n > x \end{cases}$ \\
                     \textbf{Explanation:} 
-					We are counting the number of ways to map $n$ distinguishable objects in $A$ to $x$ indistinguishable objects in $B$. If $n > x$, there are isn't any mappings so we get 0. If $n \leq x$, there is exactly one way to map each object in $A$ to an object in $B$, so we get 1.
+					If $n > x$, there are isn't any mappings so we get 0. If $n \leq x$, there is exactly one way to map each object in $A$ to an object in $B$, so we get 1.
                 
                 \item 
                     \textbf{Formula:} 
@@ -311,11 +313,6 @@ Author \# 3 }
             
             \end{solution}
 			
-
-
-
-
-
 	
 	\section{Tiling}
 		\qformat{\textbf{Sub-Adventure \thesection.\thequestion }\hfill}

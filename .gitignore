@@ -2,3 +2,8 @@
 .gz
 %OUTDIR%
 adv1.synctex.gz
+.aux
+.fdb_latexmk
+.fls
+.log
+.nav
