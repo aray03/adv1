@@ -443,7 +443,21 @@ Denzil Rogers}
 
 				\begin{solution}
 				\begin{proof}
+				Left side: 
+				By definition, $T_{n+1}$ is the total number of ways to tile a $1\times (n+1)$
 
+				\textbf{Right side: } 
+
+				\textbf{Case 1: } There is exactly one way to tile a $1\times 1$ floor, using a $1\times 1$ square, this is the $1+$ that appears infront of the sum.
+
+				\textbf{Case 2: } 
+
+				If a tiling has atleast one domino, it can be tiled in these posibilities:
+				\begin{itemize}
+					\item The position of the domino is at $n$ and $n+1$, then we must tile the rest of the floor of length $n-1$, there are $T_{n-1}$ ways to do so.
+					\item The domino \underline{ends} at $n$, this means the position at $n+1$ MUST be tiled by a square. If the domino is at $n-1$ and $n$, we have a remaining floor length of $n-2$.
+					\item The domino ends at position $i+1$, if the last domino covers $i$ and $i+1$, then every position from $i+2$ up to $n+1$ must be filled with squares. That leaves a board of length $i-1$ at the beginning. There are $T_{i-1}$ ways to do that
+				\end{itemize}
 
 				
 				\end{proof}
