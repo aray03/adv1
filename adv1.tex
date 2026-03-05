@@ -348,12 +348,14 @@ Author \# 4}
 					If $n > x$, there are isn't any mappings so we get 0. If $n \leq x$, there is exactly one way to map each object in $A$ to an object in $B$, so we get 1.
                 
                 \item 
-                    \textbf{Formula:} 
+                    \textbf{Formula:}$p_B(A+B)$ \\
                     \textbf{Explanation:} 
+					The number of ways to distribute A indistinguishable balls into B indistinguishable boxes is the same thing as partitioning the integer A into at most B parts, a value which simplifies to the formula $p_B(A+B)$.
                 
                 \item 
-                    \textbf{Formula:} 
+                    \textbf{Formula:} $p_B(A)$ \\
                     \textbf{Explanation:} 
+					Distributing A indistinguishable balls into B indistinguishable boxes such that every box contains at least one ball is the same thing as finding the number of partitions of the integer A into exactly B parts. So we can use this equasion
                 
                 \item 
                     \textbf{Formula:} $\begin{cases} 1 & \text{if } n \leq x \\ 0 & \text{if } n > x \end{cases}$ \\
