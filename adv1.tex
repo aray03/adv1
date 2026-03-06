@@ -87,7 +87,8 @@ Denzil Rogers\\
 		\emph{Determine, with proof, the values of $x,y,z$ for which Severus Snape (the first player) can always win if a particular strategy is employed for each move.}\\
 		
 		\begin{solution}
-			Claim: Player 1 (Snape) has a winning strategy for every starting position in which the number of passages in each side is not equal.
+			\subsection*{Claim}
+			Player 1 (Snape) has a winning strategy for every starting position in which the number of passages in each side is not equal.
 
 
             \begin{proof}
@@ -95,7 +96,7 @@ Denzil Rogers\\
 
                 Let x, y, z = N meaning that all of the routes have the same number of passages. 
 
-                Base Case:
+                \subsection*{Base Case}
                 N = 1
 
             \begin{tikzpicture}[scale = 1.5]
@@ -117,11 +118,11 @@ Denzil Rogers\\
 
                 In this case the player going first will always lose as long as their opponent understands the game. Player 1 can either remove one passage or 2 in either case player 2 can remove the remaining passages.
 
-                Hypothesis 
+                \subsection*{Hypothesis}
 
                 Assume that this is true for N = K + 1 meaning that x + 1, y + 1, z+1 all equal N.
 
-                Inductive step: 
+				\subsection*{Induction Step}
                 
                 In any of these cases Player 1 can remove from 1 or 2 of the values meaning that Player 2 can match them to create the same position where x y z = N and eventually get to the base case x, y, z = 1
 
@@ -129,6 +130,7 @@ Denzil Rogers\\
 
                 In any case where x, y, z $\ne$ the winning strategy for player one goes like this. The player finds the side or sides that have the least amount of passageways and removes passageways from the other sides until they match and all sides are equal. This forces player 2 into the same position where x, y, z = N which is unwinnable. 
 
+				\subsection*{Conclusion}
                 Therefore There is a winning strategy for player 1 for every starting position in which the number of passages in each side are not equal.
 
                 
@@ -168,12 +170,12 @@ Denzil Rogers\\
 
         In this game the best strategy is to just connect any edge which does not complete a square. For each C there is 4 sides and so in every case you should only play on $C_0$ $C_1$ and $C_2$ avoiding playing on $C_3$. In other words there is no risk of making a bad move as long as you are not playing on a square which already has 3 connected sides. In every game as long as both players employ this strategy there will be an ending game where every square is left with a $C_3$ and the final player must complete a square and lose. 
 
-        Lemma 1:
+        \subsection*{Lemma 1}
         There is always the same amount of edges filled before the final move of the game.
 
         The final move of the game will always be filling one square in to become $C_4$. This means there are no squares that have less than 3 sides filled in meaning every square must have exactly 3 sides filled in and be $C_3$. If every square is $C_3$ we know that there is always the same amount of edges filled before the final move of the game.
 
-        Lemma 2: 
+        \subsection*{Lemma 2}
         
         If the amount of edges is even than the player going first will always win.
 
@@ -208,6 +210,9 @@ Denzil Rogers\\
 
         The amount of edges in the given board is 49. This means that E = 49 which is odd meaning that Zelda can never win the game no matter the strategy.
 
+		\subsection*{Conclusion}
+		Thus, we have shown that Zelda will always lose in a 6X5 sized board.
+
         
         
             
@@ -224,11 +229,11 @@ Denzil Rogers\\
 			\question Prove or disprove whether you can order the years $2011, \dots, 2026$ so that the resulting $64$-digit number is prime.
 
 			\begin{solution}
-			\begin{proof}
 		\subsection*{Claim}
 		It is not possible to order the years 2011, 2012, \dots, 2026 to form a 64-digit number that is prime. 
 
 		\subsection*{Proof}
+			\begin{proof}
 		We shall prove this by proving that any such 64-digit number formed by concatenating the years 2011 to 2026 is divisible by 11, and thus composite (Composite means not Prime).
 
 		First we will start by refering to a few things from our notes. According to Theorem 2, part 6, we know that an integer $X$ is divisible by 11 if the alternating sum of its digits, $\sum_{i=0}^{n}(-1)^{i}d_{i}$, is divisible by 11.
@@ -305,7 +310,7 @@ Denzil Rogers\\
 			\end{questions}
 		
 			\begin{solution}
-			\begin{proof}
+			\begin{proof} 
             
             \begin{enumerate}
                 \item 
@@ -380,9 +385,9 @@ Denzil Rogers\\
 			\begin{parts}
 				\part Give a recursive formula for $T_n$, be sure to include initial values.
 				\begin{solution}
+                    \subsection*{Base Case} 
 				\begin{proof}
-                    
-                    Base Case: Showing the initial values up to $n = 4$:
+				Showing the initial values up to $n = 4$:
 
                     For $n = 0$: $T_0 =1$
 
@@ -393,10 +398,11 @@ Denzil Rogers\\
                     For $n = 3$: $T_3 =3$ (Using either three $1 \times 1$ tiles, or a $1 \times 2$ tile and a $1 \times 1$ tile, in different orders)
 
                     For $n = 4$: $T_4 =5$ (Using either four $1 \times 1$ tiles, or a combination of $1 \times 2$ tiles and $1 \times 1$ tiles, or two $1 \times 2$ tiles)
-                    \\\\
-                    Induction Hypothesis: This relationship holds true for some $k$, that is $T_k = T_{k-1} + T_{k-2}$ for $k \geq 2$. In other words, the number of ways to perfectly tile a $1 \times n$ floor is equal to the sum of the two previous $n$'s tiling configurations.
-                    \\\\
-                    Induction Step: We must now show that this relationship continues to hold true for $k + 1$,
+                    \subsection*{Induction Hypothesis}
+					This relationship holds true for some $k$, that is $T_k = T_{k-1} + T_{k-2}$ for $k \geq 2$. In other words, the number of ways to perfectly tile a $1 \times n$ floor is equal to the sum of the two previous $n$'s tiling configurations.
+                    \subsection*{Induction Step} 
+					We must now show that this relationship continues to hold true for $k + 1$,
+
                     that is $T_{k+1} = T_{(k+1)-1} + T_{(k+1)-2}$ for $k \geq 2$.
                     \\\\
                     Simplifying the RHS:
@@ -404,15 +410,12 @@ Denzil Rogers\\
                     $T_{(k+1)-1} + T_{(k+1)-2}$
 
                     $T_{k} + T_{k-1}$
-                    \\\\
                     Thus:
 
                     $T_{k+1} = T_{k} + T_{k-1}$
-                    \\\\
-                    Conclusion:
+                    \subsection*{Conclusion:}
 
                     As shown in the base case, the relationship is true for $n = 2$, $n = 3$, and $n = 4$; and the 			relationship’s truth for $n = k \geq 2$ implies its truth for $n = k + 1$ and so the relationship is true for all nonnegative integers by the Principle of Mathematical Induction, proving the following formula:
-                    \\\\
                     $T_n = T_{n-1} + T_{n-2}$ for $n \geq 2$
 				\end{proof} 
 				\end{solution}
@@ -507,13 +510,16 @@ Denzil Rogers\\
 			\end{theorem}
 
 			\begin{solution}
-               \begin{proof}
         
-      
-                Claim: The Theorem can be proved through induction. 
+                \subsection*{Claim}
+				For every $n \in \mathbb{Z}^+$, if any one square is removed from a $2^n \times 2^n$ chessboard, the result can be perfectly tiled with L-shaped tiles.
 
-                Base Case:
+				 \subsection*{Proof}
 
+               \begin{proof}
+				The Theorem can be proved through induction. 
+
+                \subsection*{Base Case}
                 n = 1
 
 \begin{tikzpicture}[scale=0.8]
@@ -531,9 +537,10 @@ Denzil Rogers\\
 
 As demonstrated in the picture the Theorem works for the base case.
 
-Hypothesis: Assume this holds for $2^{n + 1} \times 2^{n+ 1}$
+\subsection*{Hypothesis}
+ Assume this holds for $2^{n + 1} \times 2^{n+ 1}$
 
-Inductive Step:
+\subsection*{Inductive Step}
 For any of the $2^{n + 1} \times 2^{n+ 1}$ boards we can split them up into 4 sections which are each of the size $2^{n} \times 2^{n}$. After we do that we can put last L shaped tile in the center createing the base case. 
 
 Each
@@ -585,9 +592,12 @@ Each
     \draw[red, ultra thick] (1,3) -- (2,2);
 \end{tikzpicture}
 
-example: n=2
+Example: n=2
 
 Therefore through induction we can prove that for every value of n we can tile the floor perfectly.
+
+\subsection*{Conclusion}
+Thus, we have shown that for every $n \in \mathbb{Z}^+$, if any one square is removed from a $2^n \times 2^n$ chessboard, the result can be perfectly tiled with L-shaped tiles.
                 \end{proof}
 			\end{solution}
 		\end{questions}
