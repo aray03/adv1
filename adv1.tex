@@ -430,7 +430,29 @@ Denzil Rogers\\
 				\begin{proof}
 
 
+					\textbf{For this proof, a domino refers to a $1\times 2$ tile}
 
+					\textbf{Left Side:} by definition, $T_n$ is the number of ways to tile a $1\times n$ floor.
+
+					\textbf{Right Side:} let $k$ represent the number of dominos placed on the floor. Where a domino takes up $2n$ space, there can then only be $n/2$ dominoes. 
+
+					$k$ dominos cover $2k$ units of length. The remaining length is $n-2k$. Since each square is 1 unit long, you must use exactly $n-2k$ squares.
+
+					The total number of tiles is the sum of the number of dominos plus the squares
+					\begin{center}
+						$k+(n-2k)=n-k$
+					\end{center} 
+
+
+					in a tiling with $n-k$ total tiles, we need to choose which $k$ positions will be occupied bu a domino, and the rest automatically tiled by squares.
+
+					The number of ways to choose these positions is:
+					\begin{center}
+						$\binom{n-k}{k}$
+					\end{center}
+
+					\textbf{Conclusion: }
+					Each of these tilings is mutually exclusive and by adding together each of these possibilities we cover every arangement of squares and dominos, meaning $T_n = \sum_{k=0}^{\lfloor n/2 \rfloor} \binom{n-k}{k}$
 				
 				\end{proof}
 
@@ -463,7 +485,8 @@ Denzil Rogers\\
 					\item The domino ends at position $i+1$, if the last domino covers $i$ and $i+1$, then every position from $i+2$ up to $n+1$ must be filled with squares. That leaves a board of length $i-1$ at the beginning. There are $T_{i-1}$ ways to do that
 				\end{itemize}
 
-				
+				\textbf{Conclusion: }
+				We cover every possibility by covering $i$ through $k$ and summing each one
 				\end{proof}
 
 			\end{solution}
