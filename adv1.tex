@@ -441,9 +441,11 @@ Denzil Rogers\\
 
 					\textbf{Left Side:} by definition, $T_n$ is the number of ways to tile a $1\times n$ floor.
 
-					\textbf{Right Side:} let $k$ represent the number of dominos placed on the floor. Where a domino takes up $2n$ space, there can then only be $n/2$ dominoes. 
+					\textbf{Right Side:} let $k$ represent the number of dominos placed on the floor.
 
-					$k$ dominos cover $2k$ units of length. The remaining length is $n-2k$. Since each square is 1 unit long, you must use exactly $n-2k$ squares.
+                    Each domino covers 2 units of length. Therefore, the maximum number of dominoes possible is $[n/2]$. Thus, $k$ can range from $0$ to $[n/2]$
+
+					$k$ dominos cover $2$ units of length. The remaining length is $n-2k$. Since each square is 1 unit long, you must use exactly $n-2k$ squares.
 
 					The total number of tiles is the sum of the number of dominos plus the squares
 					\begin{center}
@@ -459,7 +461,11 @@ Denzil Rogers\\
 					\end{center}
 
 					\textbf{Conclusion: }
-					Each of these tilings is mutually exclusive and by adding together each of these possibilities we cover every arangement of squares and dominos, meaning $T_n = \sum_{k=0}^{\lfloor n/2 \rfloor} \binom{n-k}{k}$
+					Since each value of $k$ represents a disjoint case (a tiling cannot have both $k$ and $k+1$ dominoes), we can sum all posibilities of $k$ from $0$ to $[n/2]$ gives the total number of tilings:
+
+                    \begin{center}
+                        $T_{n} = \sum_{k=0}^{\lfloor n/2 \rfloor} \binom{n-k}{k}$
+                    \end{center}
 				
 				\end{proof}
 
@@ -493,7 +499,10 @@ Denzil Rogers\\
 				\end{itemize}
 
 				\textbf{Conclusion: }
-				We cover every possibility by covering $i$ through $k$ and summing each one
+				Every tiling of a $1\times (n+1)$ board either contains no dominoes or has a unique "last" domino. Since these cases are mutually exclusive and echaustive, the sum of these possibilities must equal the total number of tilings:
+				\begin{center}
+				$T_{n+1}=1+ \sum_{i=1}^n T_{i-1}$
+				\end{center}
 				\end{proof}
 
 			\end{solution}
